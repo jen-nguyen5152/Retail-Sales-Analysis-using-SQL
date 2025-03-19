@@ -1,7 +1,6 @@
 USE Test_data;
--- QUESTION 1:
-/* 
-Write an SQL query to calculate the total sales of furniture products, grouped by each quarter of the year, 
+-- TASK 1:
+/* Write an SQL query to calculate the total sales of furniture products, grouped by each quarter of the year, 
 and order the results chronologically. */
 SELECT
     YEAR(O.ORDER_DATE) AS Year,
@@ -20,9 +19,8 @@ ORDER BY
     Year ASC,
     Quarter ASC;
 
--- QUESTION 2:
-/* 
-Analyze the impact of different discount levels on sales performance across product categories, 
+-- TASK 2:
+/* Analyze the impact of different discount levels on sales performance across product categories, 
 specifically looking at the number of orders and total profit generated for each discount classification.
 
 Discount level condition:
@@ -57,9 +55,8 @@ ORDER BY
     P.CATEGORY,
     Discount_Class;
 
--- QUESTION 3:
-/* 
-Determine the top-performing product categories within each customer segment based on sales and profit, 
+-- TASK 3:
+/* Determine the top-performing product categories within each customer segment based on sales and profit, 
 focusing specifically on those categories that rank within the top two for profitability. 
 */
 WITH RankedCategories AS (
@@ -93,9 +90,8 @@ WHERE
 ORDER BY 
     SEGMENT, Profit_Rank;
 
--- QUESTION 4
-/*
-Create a report that displays each employee's performance across different product categories, showing not only the 
+-- TASK 4
+/* Create a report that displays each employee's performance across different product categories, showing not only the 
 total profit per category but also what percentage of their total profit each category represents, with the result 
 ordered by the percentage in descending order for each employee.
 */
@@ -118,12 +114,10 @@ GROUP BY
 ORDER BY 
     ID_EMPLOYEE, Profit_Percentage DESC;  
 
--- QUESTION 5:
-/*
-Develop a user-defined function in SQL Server to calculate the profitability ratio for each product category 
+-- TASK 5:
+/* Develop a user-defined function in SQL Server to calculate the profitability ratio for each product category 
 an employee has sold, and then apply this function to generate a report that sorts each employee's product categories
-by their profitability ratio.
-*/
+by their profitability ratio.*/
 
 DROP FUNCTION dbo.fn_CalculateProfitability;
 GO
@@ -178,11 +172,9 @@ ORDER BY
     E.ID_EMPLOYEE, pf.ProfitabilityRatio DESC;  -- Sort by profitability ratio in descending order
 
 
--- QUESTION 6:
-/* 
-Write a stored procedure to calculate the total sales and profit for a specific EMPLOYEE_ID over a specified date range. 
-The procedure should accept EMPLOYEE_ID, StartDate, and EndDate as parameters.
-*/
+-- TASK 6:
+/* Write a stored procedure to calculate the total sales and profit for a specific EMPLOYEE_ID over a specified date range. 
+The procedure should accept EMPLOYEE_ID, StartDate, and EndDate as parameters.*/
 GO
 CREATE PROCEDURE dbo.CalculateEmployeeSalesAndProfit
     @EMPLOYEE_ID INT,
@@ -218,9 +210,8 @@ EXEC dbo.CalculateEmployeeSalesAndProfit
     @EndDate = '2016-12-31';
 
 
--- QUESTION 7:
-/*
-Write a query using dynamic SQL query to calculate the total profit for the last six quarters in the datasets, 
+-- TASK 7:
+/* Write a query using dynamic SQL query to calculate the total profit for the last six quarters in the datasets, 
 pivoted by quarter of the year, for each state.
 */
 DECLARE @StartDate DATE,
