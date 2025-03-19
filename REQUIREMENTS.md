@@ -1,4 +1,4 @@
-Write SQL queries to get the required outputs for the following business scenarios.
+## Write SQL queries to get the required outputs for the following business scenarios.
 1. Write an SQL query to calculate the total sales of furniture products, grouped by each quarter of the year, 
 and order the results chronologically.
 
